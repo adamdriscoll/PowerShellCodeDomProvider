@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerShellCodeDomProvider", "PowerShellCodeDomProvider\PowerShellCodeDomProvider.csproj", "{BDAF483F-78BD-415F-98F2-D94593482081}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerShellCodeDomProvider.Test", "PowerSHellCodeDomProvider.Test\PowerShellCodeDomProvider.Test.csproj", "{1E0DC658-AD35-4DD0-94EE-45190869CFCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDAF483F-78BD-415F-98F2-D94593482081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDAF483F-78BD-415F-98F2-D94593482081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDAF483F-78BD-415F-98F2-D94593482081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDAF483F-78BD-415F-98F2-D94593482081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E0DC658-AD35-4DD0-94EE-45190869CFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0DC658-AD35-4DD0-94EE-45190869CFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0DC658-AD35-4DD0-94EE-45190869CFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0DC658-AD35-4DD0-94EE-45190869CFCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

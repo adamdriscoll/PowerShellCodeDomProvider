@@ -1,8 +1,7 @@
 # PowerShell CodeDOM Provider
 
-A CodeDOM provider for PowerShell. This enables the conversion between other languages such as C# and VB.NET. CodeDOM providers are kind of obsolete due to the introduction of Roslyn but are necessary for things like the Windows Forms editor. This project may be used in future versions of PowerShell Tools for Visual Studio. 
+A CodeDOM provider for PowerShell. This enables the conversion between other languages such as C# and VB.NET. CodeDOM providers are kind of obsolete due to the introduction of Roslyn but are necessary for things like the Windows Forms editor in Visual Studio. This project may be used in future versions of PowerShell Tools for Visual Studio to enable this kind of support. 
 <p/>
-
 Projects like <a href="https://github.com/icsharpcode/NRefactory">NRefactory</a> can create CodeCompileUnits from C# or VB.NET code. Once a CodeCompileUnit has been created, the PowerShell CodeDOM Provider can convert it to PowerShell script. 
 <p/>
 For example:

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#region Classes
+
 namespace Class
 {
-    class MyClass { } 
+    class MyClass { }
 }
 
 namespace PrivateMethod
@@ -28,6 +30,20 @@ namespace PublicMethod
         }
     }
 }
+
+namespace MethodWithParameters
+{
+    class MyClass
+    {
+        public void Start(int parameter1, string parameter2)
+        {
+        }
+    }
+}
+
+#endregion
+
+#region Instantiation
 
 namespace InstantiateObject
 {
@@ -51,6 +67,21 @@ namespace InstantiateObjectWithParameters
     }
 }
 
+namespace ArrayInitialization
+{
+    class MyClass
+    {
+        public void Start()
+        {
+            var array = new int[] { 1, 2, 3 };
+        }
+    }
+}
+
+#endregion
+
+#region Methods
+
 namespace InvokeMethod
 {
     class MyClass
@@ -63,16 +94,21 @@ namespace InvokeMethod
     }
 }
 
-namespace ArrayInitialization
+namespace InvokeMethodWithParameters
 {
     class MyClass
     {
         public void Start()
         {
-            var array = new int[] { 1, 2, 3 };
+            var dateTime = new DateTime();
+            dateTime.AddMinutes(1);
         }
     }
 }
+
+#endregion
+
+#region Properties
 
 namespace SetProperty
 {
@@ -85,3 +121,39 @@ namespace SetProperty
         }
     }
 }
+
+namespace GetProperty
+{
+    class MyClass
+    {
+        public void Start()
+        {
+            var obj = new System.Net.IPAddress();
+            var address = obj.Address;
+        }
+    }
+}
+
+#endregion
+
+#region Conditions
+
+namespace IfElseStatement
+{
+    class MyClass
+    {
+        public void Start()
+        {
+            if (true)
+            {
+                var obj = new System.Object();
+            }
+            else
+            {
+                var obj2 = new System.Object();
+            }
+        }
+    }
+}
+
+#endregion

@@ -119,11 +119,11 @@ namespace PowerShellCodeDomProvider
 
             if (e is CodeArrayCreateExpression)
             {
-                GenerateCodeFromCodeDelegateCreateExpression(e as CodeArrayCreateExpression, w);
+                GenerateCodeFromCodeArrayCreateExpression(e as CodeArrayCreateExpression, w);
             }
         }
 
-        private void GenerateCodeFromCodeDelegateCreateExpression(CodeArrayCreateExpression e, TextWriter w)
+        private void GenerateCodeFromCodeArrayCreateExpression(CodeArrayCreateExpression e, TextWriter w)
         {
             w.Write("@(");
 
@@ -134,7 +134,7 @@ namespace PowerShellCodeDomProvider
                     w.Write(",");
             }
 
-            w.WriteLine(")");
+            w.Write(")");
         }
 
         private void GenerateCodeFromDelegateCreateExpression(CodeDelegateCreateExpression e, TextWriter w)
@@ -271,8 +271,6 @@ namespace PowerShellCodeDomProvider
                 }
                 w.Write(")");
             }
-
-            w.WriteLine();
         }
 
         public void GenerateCodeFromStatement(CodeStatement e, TextWriter w, CodeGeneratorOptions o)
@@ -301,14 +299,50 @@ namespace PowerShellCodeDomProvider
             {
                 GenerateCodeFromCodeVariableDeclarationStatement(e as CodeVariableDeclarationStatement, w);
             }
+
+            if (e is CodeConditionStatement)
+            {
+                GenerateCodeFromCodeConditionStatement(e as CodeConditionStatement, w);
+            }
         }
 
+        private void GenerateCodeFromCodeConditionStatement(CodeConditionStatement e, TextWriter w)
+        {
+            w.Write("if (");
+
+            GenerateCodeFromExpression(e.Condition, w, null);
+
+            w.WriteLine(")");
+            w.WriteLine("{");
+
+            foreach (CodeStatement codeStatement in e.TrueStatements)
+            {
+                GenerateCodeFromStatement(codeStatement, w, null);
+            }
+
+            w.WriteLine("}");
+
+            if (e.FalseStatements.Count > 0)
+            {
+                w.WriteLine("else");
+                w.WriteLine("{");
+
+                foreach (CodeStatement codeStatement in e.FalseStatements)
+                {
+                    GenerateCodeFromStatement(codeStatement, w, null);
+                }
+
+                w.WriteLine("}");
+            }
+        }
 
         private void GenerateCodeFromCodeVariableDeclarationStatement(CodeVariableDeclarationStatement e, TextWriter w)
         {
             w.Write("$" + e.Name + " = ");
 
             GenerateCodeFromExpression(e.InitExpression, w, null);
+
+            w.WriteLine();
         }
 
         private void GenerateCodeFromCodeAttachEventStatement(CodeAttachEventStatement e, TextWriter w,
@@ -329,7 +363,7 @@ namespace PowerShellCodeDomProvider
 
             w.Write("add_{0}(", e.Event.EventName);
             GenerateCodeFromExpression(e.Listener, w, o);
-            w.Write(")" + Environment.NewLine);
+            w.WriteLine(")");
         }
 
 
@@ -343,7 +377,7 @@ namespace PowerShellCodeDomProvider
             GenerateCodeFromExpression(e.Left, w, o);
             w.Write(" = ");
             GenerateCodeFromExpression(e.Right, w, o);
-            w.Write("\r\n");
+            w.WriteLine();
         }
 
         public void GenerateCodeFromNamespace(CodeNamespace e, TextWriter w, CodeGeneratorOptions o)
@@ -421,8 +455,25 @@ namespace PowerShellCodeDomProvider
             _currentType.Methods.Add(method);
             
             w.WriteLine("function " + e.Name);
-            w.WriteLine("{");    
-            
+            w.WriteLine("{");
+
+            if (e.Parameters.Count > 0)
+            {
+                w.WriteLine("param(");
+                for(int i = 0; i < e.Parameters.Count; i++)
+                {
+                    var parameter = e.Parameters[i];
+                    w.Write("[{0}]${1}", parameter.Type.BaseType, parameter.Name);
+                    if (i != e.Parameters.Count - 1)
+                    {
+                        w.Write(",");
+                    }
+                    w.WriteLine();
+                }
+                w.WriteLine(")");
+            }
+
+
             foreach (CodeStatement statement in e.Statements)
             {
                 GenerateCodeFromStatement(statement, w, o);
@@ -476,3 +527,4 @@ namespace PowerShellCodeDomProvider
         public string Name { get; set; }
     }
 }
+

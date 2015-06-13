@@ -15,9 +15,11 @@
     hljs.initHighlightingOnLoad();
     function Convert()
     {
+      var csharp = $('#CSharpCode').val()
       $.post({
           url: "http://powershellcodeconverter.azuerwebsites.com/api/convert",
-          data: $('#CSharpCode').value
+          data: csharp,
+          dataType: 'text'
       }).then(function(data) {
          $('#PowerShellCode').text(data);
       });

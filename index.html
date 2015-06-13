@@ -17,7 +17,7 @@
     {
       var csharp = $('#CSharpCode').val()
       $.post({
-          url: "http://powershellcodeconverter.azuerwebsites.com/api/convert",
+          url: "http://powershellcodeconverter.azuerwebsites.net/api/convert",
           data: { 'code': csharp },
           dataType: 'text'
       }).then(function(data) {

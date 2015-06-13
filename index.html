@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>PowerShell CodeDOM Provider by adamdriscoll</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>PowerShell CodeDOM Provider</h1>
+        <h2>CodeDOM Provider for PowerShell</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/adamdriscoll/PowerShellCodeDomProvider/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/adamdriscoll/PowerShellCodeDomProvider/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/adamdriscoll/PowerShellCodeDomProvider" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="powershell-codedom-provider" class="anchor" href="#powershell-codedom-provider" aria-hidden="true"><span class="octicon octicon-link"></span></a>PowerShell CodeDOM Provider</h1>
+
+<p>A CodeDOM provider for PowerShell. This enables the conversion between other languages such as C# and VB.NET. CodeDOM providers are kind of obsolete due to the introduction of Roslyn but are necessary for things like the Windows Forms editor in Visual Studio. This project may be used in future versions of PowerShell Tools for Visual Studio to enable this kind of support. 
+</p><p></p>
+Projects like <a href="https://github.com/icsharpcode/NRefactory">NRefactory</a> can create CodeCompileUnits from C# or VB.NET code. Once a CodeCompileUnit has been created, the PowerShell CodeDOM Provider can convert it to PowerShell script. 
+<p></p>
+For example:
+<p></p>
+<img src="http://i.imgur.com/CtBZKxZ.png">
+<p></p>
+To 
+<p></p>
+<img src="http://i.imgur.com/XT3saNg.png">
+<p></p>
+The PowerShell CodeDOM provider is also capable of parsing a PowerShell script and returning a CodeCompileUnit so conversion between PowerShell to C# or VB.NET can take place. 
+<p></p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

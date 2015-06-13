@@ -8,6 +8,27 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
+    <link rel="stylesheet" href="javascripts/styles/default.css">
+    <script src="javascripts/highlight.pack.js"></script>
+    <script src="javascripts/jquery-2.1.4.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    function Convert()
+    {
+      $.post({
+          url: "http://powershellcodeconverter.azuerwebsites.com/api/convert",
+          data: $('#CSharpCode').value
+      }).then(function(data) {
+         $('#PowerShellCode').text(data);
+      });
+    }
+
+    $(document).ready(function() {
+      Convert();
+    });
+
+    </script>
+
     <title>PowerShell CodeDOM Provider by adamdriscoll</title>
   </head>
 
@@ -37,11 +58,21 @@ Projects like <a href="https://github.com/icsharpcode/NRefactory">NRefactory</a>
 <p></p>
 For example:
 <p></p>
-<img src="http://i.imgur.com/CtBZKxZ.png">
+
+<textarea id="CSharpCode" cols='80' rows='9'>namespace MyNamespace {
+class MyClass 
+  {
+    public string HelloWorld() 
+    {
+       return "Hello world!";
+    }
+  }
+}</textarea>
+
 <p></p>
-To 
+<center><input type='button' onclick='Convert()' value='Convert'/></center>
 <p></p>
-<img src="http://i.imgur.com/XT3saNg.png">
+<pre><code class="PowerShell" id='PowerShellCode'></code></pre>
 <p></p>
 The PowerShell CodeDOM provider is also capable of parsing a PowerShell script and returning a CodeCompileUnit so conversion between PowerShell to C# or VB.NET can take place. 
 <p></p>

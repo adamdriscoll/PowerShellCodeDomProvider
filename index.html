@@ -18,6 +18,9 @@
       $.post("http://powershellcodeconverter.azurewebsites.net/api/convert",
           csharp, function(data) {
          $('#PowerShellCode').text(data);
+         $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
       });
     }
 

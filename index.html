@@ -15,7 +15,7 @@
     function Convert()
     {
       var csharp = $('#CSharpCode').val()
-      $.post("http://powershellcodeconverter.azuerwebsites.net/api/convert",
+      $.post("http://powershellcodeconverter.azurewebsites.net/api/convert",
           csharp, function(data) {
          $('#PowerShellCode').text(data);
       });

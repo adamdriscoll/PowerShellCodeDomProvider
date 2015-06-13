@@ -63,9 +63,11 @@ For example:
 <textarea id="CSharpCode" cols='80' rows='9'>namespace MyNamespace {
 class MyClass 
   {
-    public string HelloWorld() 
+    public void HelloWorld() 
     {
-       return "Hello world!";
+       var obj = new DateTime();
+       obj.AddMinutes(1);
+       var string = "MyString";
     }
   }
 }</textarea>

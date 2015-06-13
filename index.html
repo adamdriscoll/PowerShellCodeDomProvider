@@ -6,7 +6,6 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <link rel="stylesheet" href="javascripts/styles/default.css">
     <script src="javascripts/highlight.pack.js"></script>
@@ -17,7 +16,8 @@
     {
       var csharp = $('#CSharpCode').val()
       $.post({
-          url: "http://powershellcodeconverter.azuerwebsites.net/api/convert"
+          url: "http://powershellcodeconverter.azuerwebsites.net/api/convert",
+          data: { 'code' : csharp }
       }).then(function(data) {
          $('#PowerShellCode').text(data);
       });
